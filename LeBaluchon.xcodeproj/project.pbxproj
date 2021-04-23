@@ -15,6 +15,9 @@
 		E600D6582632FB7700EF367C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E600D6562632FB7700EF367C /* LaunchScreen.storyboard */; };
 		E600D6632632FB7800EF367C /* LeBaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D6622632FB7800EF367C /* LeBaluchonTests.swift */; };
 		E600D66E2632FB7800EF367C /* LeBaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D66D2632FB7800EF367C /* LeBaluchonUITests.swift */; };
+		E600D6852632FCC900EF367C /* ExchangeRateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D6842632FCC900EF367C /* ExchangeRateController.swift */; };
+		E600D6902632FD3000EF367C /* TranslationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D68F2632FD3000EF367C /* TranslationController.swift */; };
+		E600D6952632FD6900EF367C /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D6942632FD6900EF367C /* WeatherController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		E600D6692632FB7800EF367C /* LeBaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E600D66D2632FB7800EF367C /* LeBaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonUITests.swift; sourceTree = "<group>"; };
 		E600D66F2632FB7800EF367C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E600D6842632FCC900EF367C /* ExchangeRateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateController.swift; sourceTree = "<group>"; };
+		E600D68F2632FD3000EF367C /* TranslationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationController.swift; sourceTree = "<group>"; };
+		E600D6942632FD6900EF367C /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +105,12 @@
 		E600D64A2632FB7400EF367C /* LeBaluchon */ = {
 			isa = PBXGroup;
 			children = (
+				E600D6832632FC4900EF367C /* Controller */,
+				E600D6822632FC3F00EF367C /* View */,
+				E600D6812632FC2D00EF367C /* Model */,
 				E600D64B2632FB7400EF367C /* AppDelegate.swift */,
 				E600D64D2632FB7400EF367C /* SceneDelegate.swift */,
-				E600D64F2632FB7400EF367C /* ViewController.swift */,
-				E600D6512632FB7400EF367C /* Main.storyboard */,
 				E600D6542632FB7700EF367C /* Assets.xcassets */,
-				E600D6562632FB7700EF367C /* LaunchScreen.storyboard */,
 				E600D6592632FB7700EF367C /* Info.plist */,
 			);
 			path = LeBaluchon;
@@ -126,6 +132,33 @@
 				E600D66F2632FB7800EF367C /* Info.plist */,
 			);
 			path = LeBaluchonUITests;
+			sourceTree = "<group>";
+		};
+		E600D6812632FC2D00EF367C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E600D6822632FC3F00EF367C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E600D6512632FB7400EF367C /* Main.storyboard */,
+				E600D6562632FB7700EF367C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E600D6832632FC4900EF367C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E600D64F2632FB7400EF367C /* ViewController.swift */,
+				E600D6842632FCC900EF367C /* ExchangeRateController.swift */,
+				E600D68F2632FD3000EF367C /* TranslationController.swift */,
+				E600D6942632FD6900EF367C /* WeatherController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +291,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E600D6852632FCC900EF367C /* ExchangeRateController.swift in Sources */,
 				E600D6502632FB7400EF367C /* ViewController.swift in Sources */,
+				E600D6952632FD6900EF367C /* WeatherController.swift in Sources */,
 				E600D64C2632FB7400EF367C /* AppDelegate.swift in Sources */,
 				E600D64E2632FB7400EF367C /* SceneDelegate.swift in Sources */,
+				E600D6902632FD3000EF367C /* TranslationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

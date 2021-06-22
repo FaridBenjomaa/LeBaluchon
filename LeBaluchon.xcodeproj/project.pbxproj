@@ -16,8 +16,15 @@
 		E600D6632632FB7800EF367C /* LeBaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D6622632FB7800EF367C /* LeBaluchonTests.swift */; };
 		E600D66E2632FB7800EF367C /* LeBaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D66D2632FB7800EF367C /* LeBaluchonUITests.swift */; };
 		E600D6852632FCC900EF367C /* ExchangeRateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D6842632FCC900EF367C /* ExchangeRateController.swift */; };
-		E600D6902632FD3000EF367C /* TranslationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D68F2632FD3000EF367C /* TranslationController.swift */; };
-		E600D6952632FD6900EF367C /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600D6942632FD6900EF367C /* WeatherController.swift */; };
+		E6402FEB264EC105008F0993 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6402FEA264EC105008F0993 /* WeatherService.swift */; };
+		E6402FF3264EC9E7008F0993 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6402FF2264EC9E7008F0993 /* WeatherViewController.swift */; };
+		E6402FF8264ECE68008F0993 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6402FF7264ECE68008F0993 /* WeatherAPI.swift */; };
+		E6403000264EDEAF008F0993 /* DeviseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6402FFF264EDEAF008F0993 /* DeviseService.swift */; };
+		E6403005264EE338008F0993 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6403004264EE338008F0993 /* Data.swift */; };
+		E640300A264EFBC4008F0993 /* Devise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6403009264EFBC4008F0993 /* Devise.swift */; };
+		E6403012264F13AD008F0993 /* DeviseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6403011264F13AD008F0993 /* DeviseViewController.swift */; };
+		E64A53BF264E9AD10067D8DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A53BE264E9AD10067D8DA /* HomeViewController.swift */; };
+		E6F491B32682171100899E63 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F491B22682171100899E63 /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +60,15 @@
 		E600D66D2632FB7800EF367C /* LeBaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonUITests.swift; sourceTree = "<group>"; };
 		E600D66F2632FB7800EF367C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E600D6842632FCC900EF367C /* ExchangeRateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateController.swift; sourceTree = "<group>"; };
-		E600D68F2632FD3000EF367C /* TranslationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationController.swift; sourceTree = "<group>"; };
-		E600D6942632FD6900EF367C /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
+		E6402FEA264EC105008F0993 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		E6402FF2264EC9E7008F0993 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		E6402FF7264ECE68008F0993 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
+		E6402FFF264EDEAF008F0993 /* DeviseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviseService.swift; sourceTree = "<group>"; };
+		E6403004264EE338008F0993 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		E6403009264EFBC4008F0993 /* Devise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devise.swift; sourceTree = "<group>"; };
+		E6403011264F13AD008F0993 /* DeviseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviseViewController.swift; sourceTree = "<group>"; };
+		E64A53BE264E9AD10067D8DA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E6F491B22682171100899E63 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +151,12 @@
 		E600D6812632FC2D00EF367C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E6402FEA264EC105008F0993 /* WeatherService.swift */,
+				E6402FFF264EDEAF008F0993 /* DeviseService.swift */,
+				E6403004264EE338008F0993 /* Data.swift */,
+				E6402FF7264ECE68008F0993 /* WeatherAPI.swift */,
+				E6403009264EFBC4008F0993 /* Devise.swift */,
+				E6F491B22682171100899E63 /* WeatherData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,8 +175,9 @@
 			children = (
 				E600D64F2632FB7400EF367C /* ViewController.swift */,
 				E600D6842632FCC900EF367C /* ExchangeRateController.swift */,
-				E600D68F2632FD3000EF367C /* TranslationController.swift */,
-				E600D6942632FD6900EF367C /* WeatherController.swift */,
+				E64A53BE264E9AD10067D8DA /* HomeViewController.swift */,
+				E6402FF2264EC9E7008F0993 /* WeatherViewController.swift */,
+				E6403011264F13AD008F0993 /* DeviseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,10 +314,17 @@
 			files = (
 				E600D6852632FCC900EF367C /* ExchangeRateController.swift in Sources */,
 				E600D6502632FB7400EF367C /* ViewController.swift in Sources */,
-				E600D6952632FD6900EF367C /* WeatherController.swift in Sources */,
+				E6402FEB264EC105008F0993 /* WeatherService.swift in Sources */,
 				E600D64C2632FB7400EF367C /* AppDelegate.swift in Sources */,
+				E6403005264EE338008F0993 /* Data.swift in Sources */,
+				E6402FF8264ECE68008F0993 /* WeatherAPI.swift in Sources */,
+				E6403000264EDEAF008F0993 /* DeviseService.swift in Sources */,
 				E600D64E2632FB7400EF367C /* SceneDelegate.swift in Sources */,
-				E600D6902632FD3000EF367C /* TranslationController.swift in Sources */,
+				E6F491B32682171100899E63 /* WeatherData.swift in Sources */,
+				E6403012264F13AD008F0993 /* DeviseViewController.swift in Sources */,
+				E6402FF3264EC9E7008F0993 /* WeatherViewController.swift in Sources */,
+				E64A53BF264E9AD10067D8DA /* HomeViewController.swift in Sources */,
+				E640300A264EFBC4008F0993 /* Devise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fr.farid.benjomaa.LeBaluchon;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.farid.benjomaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -498,7 +526,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = fr.farid.benjomaa.LeBaluchon;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.farid.benjomaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

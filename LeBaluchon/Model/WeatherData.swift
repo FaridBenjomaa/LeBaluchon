@@ -17,6 +17,11 @@ struct WeatherData {
     var temperature = "0.0"
     var temperatureMin = "0.0"
     var temperatureMax = "0.0"
+    var weather : [Weather]
+    var icon : Data
+    var backgroundImage : Data
+    
+    
     
     func ConvertKelvinInCelcuis(kelvin : Double) -> String{
         let celsius = kelvin - 273.15
@@ -26,8 +31,8 @@ struct WeatherData {
     
     mutating func Convertion () {
         
-       temperature = ConvertKelvinInCelcuis(kelvin: temp)
-        temperatureMin = ConvertKelvinInCelcuis(kelvin: tempMin)
+      temperature = ConvertKelvinInCelcuis(kelvin: temp)
+      temperatureMin = ConvertKelvinInCelcuis(kelvin: tempMin)
       temperatureMax = ConvertKelvinInCelcuis(kelvin: tempMax)
     }
      

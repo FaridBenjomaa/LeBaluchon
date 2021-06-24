@@ -25,6 +25,8 @@
 		E6403012264F13AD008F0993 /* DeviseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6403011264F13AD008F0993 /* DeviseViewController.swift */; };
 		E64A53BF264E9AD10067D8DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A53BE264E9AD10067D8DA /* HomeViewController.swift */; };
 		E6F491B32682171100899E63 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F491B22682171100899E63 /* WeatherData.swift */; };
+		E6F491BC2684CBFC00899E63 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F491BB2684CBFB00899E63 /* CoreLocation.framework */; };
+		E6F491C92684CE6300899E63 /* Localisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F491C82684CE6300899E63 /* Localisation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		E6403011264F13AD008F0993 /* DeviseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviseViewController.swift; sourceTree = "<group>"; };
 		E64A53BE264E9AD10067D8DA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E6F491B22682171100899E63 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		E6F491BB2684CBFB00899E63 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E6F491C82684CE6300899E63 /* Localisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localisation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6F491BC2684CBFC00899E63 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +108,7 @@
 				E600D6612632FB7800EF367C /* LeBaluchonTests */,
 				E600D66C2632FB7800EF367C /* LeBaluchonUITests */,
 				E600D6492632FB7400EF367C /* Products */,
+				E6F491BA2684CBFA00899E63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,6 +163,7 @@
 				E6402FF7264ECE68008F0993 /* WeatherAPI.swift */,
 				E6403009264EFBC4008F0993 /* Devise.swift */,
 				E6F491B22682171100899E63 /* WeatherData.swift */,
+				E6F491C82684CE6300899E63 /* Localisation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +187,14 @@
 				E6403011264F13AD008F0993 /* DeviseViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6F491BA2684CBFA00899E63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6F491BB2684CBFB00899E63 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +336,7 @@
 				E6403000264EDEAF008F0993 /* DeviseService.swift in Sources */,
 				E600D64E2632FB7400EF367C /* SceneDelegate.swift in Sources */,
 				E6F491B32682171100899E63 /* WeatherData.swift in Sources */,
+				E6F491C92684CE6300899E63 /* Localisation.swift in Sources */,
 				E6403012264F13AD008F0993 /* DeviseViewController.swift in Sources */,
 				E6402FF3264EC9E7008F0993 /* WeatherViewController.swift in Sources */,
 				E64A53BF264E9AD10067D8DA /* HomeViewController.swift in Sources */,

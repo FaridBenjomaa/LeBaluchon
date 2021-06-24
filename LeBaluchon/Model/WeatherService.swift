@@ -9,9 +9,9 @@ import Foundation
 
 class WeatherService {
     
-    var latitude : Double?
-    var longitude : Double?
-    var name : String
+    var lat : Double?
+    var lon : Double?
+    var name : String?
     var icon : String?
     
     let baseString = "http://api.openweathermap.org/data/2.5/weather?"
@@ -20,19 +20,28 @@ class WeatherService {
     
     init(name : String){
         self.name = name
-       
     }
     
+    init(lat: Double, lon: Double){
+        self.lat = lat
+        self.lon = lon
+    }
+    
+    func findLocation() -> String {
+        let latLong = "lat=\(lat!)&lon=\(lon!)"
+        let URLString = baseString + latLong + accessKey
+        return URLString
+    }
   
-    
-      
-        
-    
-    
-    func GetWeather(callback: @escaping (Bool, WeatherData?) -> Void) {
-        let cityName = "q=\(name)"
+    func city() -> String{
+        let cityName = "q=\(name!)"
         let URLString = baseString + cityName + accessKey
-        
+       return URLString
+    }
+   
+    func GetWeatherByCity(callback: @escaping (Bool, WeatherData?) -> Void) {
+    
+        let URLString = city()
         if let url = URL(string: URLString) {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 DispatchQueue.main.async {
@@ -46,13 +55,13 @@ class WeatherService {
                             let country =  result.sys.country
                             let weather =  result.weather
                             self.icon = result.weather[0].icon
-                            
+                           
                      
-                            self.getbackground { (image) in
-                                if let image = image{
+                          
+                             
                                     self.getIcon { (data) in
                                         if let data = data {
-                                            var weatherData = WeatherData(name: name, temp: temp, tempMin: tempMin, tempMax: tempMax, country: country, weather: weather, icon: data, backgroundImage: image)
+                                            var weatherData = WeatherData(name: name, temp: temp, tempMin: tempMin, tempMax: tempMax, country: country, weather: weather, icon: data)
                                             
                                             weatherData.Convertion()
                                             callback(true, weatherData)
@@ -60,10 +69,8 @@ class WeatherService {
                                         callback(false, nil)
                                         }
                                     }
-                                }else{
-                                    callback(false, nil)
-                                }
-                            }
+                              
+                            
                           
                             
                 } catch {
@@ -84,7 +91,56 @@ class WeatherService {
         }
     }
     
-  
+    func GetWeatherByLocation(callback: @escaping (Bool, WeatherData?) -> Void) {
+    
+        let URLString = findLocation()
+        if let url = URL(string: URLString) {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                DispatchQueue.main.async {
+                    if let data = data {
+                        do {
+                            let result = try JSONDecoder().decode(WeatherAPI.self, from: data)
+                            let name =  result.name
+                            let temp = result.main.temp
+                            let tempMin = result.main.temp_min
+                            let tempMax = result.main.temp_max
+                            let country =  result.sys.country
+                            let weather =  result.weather
+                            self.icon = result.weather[0].icon
+                            
+                     
+                         
+                             
+                                    self.getIcon { (data) in
+                                        if let data = data {
+                                            var weatherData = WeatherData(name: name, temp: temp, tempMin: tempMin, tempMax: tempMax, country: country, weather: weather, icon: data)
+                                            
+                                            weatherData.Convertion()
+                                            callback(true, weatherData)
+                                        }else {
+                                        callback(false, nil)
+                                        }
+                                    }
+            
+                            
+                } catch {
+                            print(error.localizedDescription)
+                            callback(false, nil)
+                        }
+                        
+                        if let error = error {
+                            print(error.localizedDescription)
+                            callback(false, nil)
+                        }
+                    }
+                }
+      
+            }.resume()
+            
+
+        }
+    }
+    
 
     
     func getIcon(completionHandler: @escaping (Data?) -> Void){
@@ -118,34 +174,7 @@ class WeatherService {
     
 }
     
-    func getbackground(completionHandler: @escaping (Data?) -> Void){
-        let baseString = "https://source.unsplash.com/1600x900/?city,"
-        let city = name
-        let URLString = baseString + city
-        
-        if let url = URL(string: URLString) {
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                DispatchQueue.main.async {
-                    if let data = data, error == nil {
-                        do {
-                            if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                             completionHandler(data)
-                                
-                            }
-                       
-                        if let error = error {
-                            print(error.localizedDescription)
-                           completionHandler(nil)
-                        }
-                        
-                    }
-                }
-            }
-            }.resume()
-    }
-    
-    
-}
+
     
   
 }

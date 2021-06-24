@@ -12,7 +12,8 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
    
     
       
-    var latLong : String?
+    var lat : Double?
+    var lon : Double?
       
     let manager = CLLocationManager()
     
@@ -66,7 +67,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     }
     
     func weatherShow(weather : WeatherService){
-        weather.GetWeather{ (success, weatherData) in
+        weather.GetWeatherByCity { (success, weatherData) in
             if success, let weatherData = weatherData {
                 self.update(weatherData: weatherData)
                 
@@ -77,7 +78,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     }
     
     func weatherShow2(weather : WeatherService){
-        weather.GetWeather{ (success, weatherData) in
+        weather.GetWeatherByCity{ (success, weatherData) in
             if success, let weatherData = weatherData {
                 self.update2(weatherData: weatherData)
                 
@@ -87,6 +88,16 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         }
     }
     
+    func weatherShowDefault(weather : WeatherService){
+        weather.GetWeatherByLocation { (success, weatherData) in
+            if success, let weatherData = weatherData {
+                self.update(weatherData: weatherData)
+                
+            }else {
+                
+            }
+        }
+    }
     func update(weatherData : WeatherData){
        
         nameCity1.isHidden = true
@@ -97,15 +108,13 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         icon.isHidden = false
         
         
+        
         self.city.text = weatherData.name
         self.temperature.text = "Temperature :\(weatherData.temperature)"
         self.tempMin.text = "Temperature Minimum :\(weatherData.temperatureMin)"
         self.tempMax.text = "Temperature Maximum : \(weatherData.temperatureMax)"
         self.icon.image = UIImage(data : weatherData.icon)
-        
-        let background = UIImage(data : weatherData.backgroundImage)
-        
-        self.imageCity.backgroundColor = UIColor(patternImage:  background!)
+      
     }
     
     
@@ -124,11 +133,13 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         self.tempMax2.text = "Temperature Maximum \(weatherData.temperatureMax)"
         self.icon2.image = UIImage(data : weatherData.icon)
         
-        let background = UIImage(data : weatherData.backgroundImage)
-        
-        self.imageCity2.backgroundColor = UIColor(patternImage:  background!)
+      
     }
 
+    
+ 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -137,6 +148,8 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
+        
         
     }
     
@@ -147,8 +160,9 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
-        latLong = "lat=\(latitude)&lon\(longitude)"
+        weather1 = WeatherService(lat: latitude, lon: longitude)
         
+        weatherShowDefault(weather: weather1)
     }
  
 }

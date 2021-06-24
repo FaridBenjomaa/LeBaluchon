@@ -19,7 +19,7 @@ struct WeatherData {
     var temperatureMax = "0.0"
     var weather : [Weather]
     var icon : Data
-
+    var image : String?
     
     
     

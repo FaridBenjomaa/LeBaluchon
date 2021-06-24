@@ -51,12 +51,11 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         cityName1 = nameCity1.text!
         cityName2 = nameCity2.text!
         
-        weather1 = WeatherService(name:  cityName1)
+        weather1 = WeatherService(name: cityName1)
         weather2 = WeatherService(name: cityName2)
         
         CompareWeather(weather1: weather1, weather2: weather2)
-        
-        
+    
     }
     
     func CompareWeather(weather1 : WeatherService, weather2 : WeatherService){
@@ -98,6 +97,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
             }
         }
     }
+    
     func update(weatherData : WeatherData){
        
         nameCity1.isHidden = true
@@ -108,7 +108,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         icon.isHidden = false
         
         
-        
+        self.imageCity.backgroundColor = UIColor(patternImage: UIImage(named: weatherData.image!)!)
         self.city.text = weatherData.name
         self.temperature.text = "Temperature :\(weatherData.temperature)"
         self.tempMin.text = "Temperature Minimum :\(weatherData.temperatureMin)"
@@ -127,6 +127,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         city2.isHidden = false
         icon2.isHidden = false
         
+        self.imageCity2.backgroundColor = UIColor(patternImage: UIImage(named: weatherData.image!)!)
         self.city2.text = weatherData.name
         self.temperature2.text = "Temperature \(weatherData.temperature)"
         self.tempMin2.text = "Temperature Minimum \(weatherData.temperatureMin)"

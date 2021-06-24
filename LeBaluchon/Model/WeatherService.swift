@@ -13,10 +13,10 @@ class WeatherService {
     var lon : Double?
     var name : String?
     var icon : String?
+ 
     
     let baseString = "http://api.openweathermap.org/data/2.5/weather?"
     let accessKey = "&appid=0357d1c81a423e0469bfc903073c03ec"
-    
     
     init(name : String){
         self.name = name
@@ -55,13 +55,13 @@ class WeatherService {
                             let country =  result.sys.country
                             let weather =  result.weather
                             self.icon = result.weather[0].icon
-                           
-                     
-                          
-                             
+                            
+             
                                     self.getIcon { (data) in
                                         if let data = data {
                                             var weatherData = WeatherData(name: name, temp: temp, tempMin: tempMin, tempMax: tempMax, country: country, weather: weather, icon: data)
+                                            
+                                            weatherData.image = result.weather[0].description
                                             
                                             weatherData.Convertion()
                                             callback(true, weatherData)
@@ -69,10 +69,7 @@ class WeatherService {
                                         callback(false, nil)
                                         }
                                     }
-                              
-                            
-                          
-                            
+                
                 } catch {
                             print(error.localizedDescription)
                             callback(false, nil)
@@ -86,7 +83,6 @@ class WeatherService {
                 }
       
             }.resume()
-            
 
         }
     }
@@ -107,13 +103,13 @@ class WeatherService {
                             let country =  result.sys.country
                             let weather =  result.weather
                             self.icon = result.weather[0].icon
-                            
-                     
-                         
-                             
+                           
+                 
                                     self.getIcon { (data) in
                                         if let data = data {
                                             var weatherData = WeatherData(name: name, temp: temp, tempMin: tempMin, tempMax: tempMax, country: country, weather: weather, icon: data)
+                                            
+                                          weatherData.image = result.weather[0].description
                                             
                                             weatherData.Convertion()
                                             callback(true, weatherData)
@@ -122,7 +118,6 @@ class WeatherService {
                                         }
                                     }
             
-                            
                 } catch {
                             print(error.localizedDescription)
                             callback(false, nil)
@@ -136,8 +131,7 @@ class WeatherService {
                 }
       
             }.resume()
-            
-
+ 
         }
     }
     
@@ -170,11 +164,6 @@ class WeatherService {
             }
             }.resume()
     }
-    
-    
 }
-    
 
-    
-  
 }

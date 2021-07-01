@@ -27,6 +27,7 @@
 		E6F491B32682171100899E63 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F491B22682171100899E63 /* WeatherData.swift */; };
 		E6F491BC2684CBFC00899E63 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F491BB2684CBFB00899E63 /* CoreLocation.framework */; };
 		E6F491C92684CE6300899E63 /* Localisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F491C82684CE6300899E63 /* Localisation.swift */; };
+		E6F491CE26875BE700899E63 /* DeviseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F491CD26875BE600899E63 /* DeviseData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		E6F491B22682171100899E63 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		E6F491BB2684CBFB00899E63 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E6F491C82684CE6300899E63 /* Localisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localisation.swift; sourceTree = "<group>"; };
+		E6F491CD26875BE600899E63 /* DeviseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviseData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				E6403009264EFBC4008F0993 /* Devise.swift */,
 				E6F491B22682171100899E63 /* WeatherData.swift */,
 				E6F491C82684CE6300899E63 /* Localisation.swift */,
+				E6F491CD26875BE600899E63 /* DeviseData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			files = (
 				E600D6852632FCC900EF367C /* ExchangeRateController.swift in Sources */,
 				E600D6502632FB7400EF367C /* ViewController.swift in Sources */,
+				E6F491CE26875BE700899E63 /* DeviseData.swift in Sources */,
 				E6402FEB264EC105008F0993 /* WeatherService.swift in Sources */,
 				E600D64C2632FB7400EF367C /* AppDelegate.swift in Sources */,
 				E6403005264EE338008F0993 /* Data.swift in Sources */,

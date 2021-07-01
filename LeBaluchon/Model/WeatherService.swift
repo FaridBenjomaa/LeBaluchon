@@ -117,7 +117,7 @@ class WeatherService {
                                         callback(false, nil)
                                         }
                                     }
-            
+        
                 } catch {
                             print(error.localizedDescription)
                             callback(false, nil)

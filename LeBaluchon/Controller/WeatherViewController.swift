@@ -27,8 +27,9 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     
     
   
-    @IBOutlet weak var imageCity: UIStackView!
-    @IBOutlet weak var nameCity1: UITextField!
+
+
+    @IBOutlet weak var imageCity: UIImageView!
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var tempMax: UILabel!
@@ -37,7 +38,8 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     
     @IBOutlet weak var valider: UIButton!
     
-    @IBOutlet weak var imageCity2: UIStackView!
+
+    @IBOutlet weak var imageCity2: UIImageView!
     @IBOutlet weak var nameCity2: UITextField!
     @IBOutlet weak var city2: UILabel!
     @IBOutlet weak var temperature2: UILabel!
@@ -48,7 +50,6 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     
     
     @IBAction func tappedButton(_ sender: Any) {
-        cityName1 = nameCity1.text!
         cityName2 = nameCity2.text!
         
         weather1 = WeatherService(name: cityName1)
@@ -100,15 +101,15 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     
     func update(weatherData : WeatherData){
        
-        nameCity1.isHidden = true
+      
         temperature.isHidden = false
         tempMax.isHidden = false
         tempMin.isHidden = false
         city.isHidden = false
         icon.isHidden = false
+       
         
-        
-        self.imageCity.backgroundColor = UIColor(patternImage: UIImage(named: weatherData.image!)!)
+        self.imageCity.image =  UIImage(named: weatherData.image!)
         self.city.text = weatherData.name
         self.temperature.text = "Temperature :\(weatherData.temperature)"
         self.tempMin.text = "Temperature Minimum :\(weatherData.temperatureMin)"
@@ -126,8 +127,9 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         tempMin2.isHidden = false
         city2.isHidden = false
         icon2.isHidden = false
+       
         
-        self.imageCity2.backgroundColor = UIColor(patternImage: UIImage(named: weatherData.image!)!)
+        self.imageCity2.image = UIImage(named: weatherData.image!)
         self.city2.text = weatherData.name
         self.temperature2.text = "Temperature \(weatherData.temperature)"
         self.tempMin2.text = "Temperature Minimum \(weatherData.temperatureMin)"
@@ -137,24 +139,16 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
       
     }
 
-    
- 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+     
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
-        
-        
+  
     }
-    
-    
+        
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let location = locations[0]

@@ -9,13 +9,9 @@ import Foundation
 
 struct Devise : Decodable {
     var success : Bool
-    //var timestamp : Int
-    //var base : String
-    //var date : Date
-    var rates : Rates
+    var base : String
+    var rates : [String:Double]
+   
 
 }
 
-struct Rates: Decodable {
-    var USD : Double
-}

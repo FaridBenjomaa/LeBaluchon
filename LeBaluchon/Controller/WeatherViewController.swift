@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 
+
 class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
    
     
@@ -67,7 +68,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     }
     
     func weatherShow(weather : WeatherService){
-        weather.GetWeatherByCity { (success, weatherData) in
+        weather.getWeatherByCity { (success, weatherData) in
             if success, let weatherData = weatherData {
                 self.update(weatherData: weatherData)
                 
@@ -78,7 +79,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     }
     
     func weatherShow2(weather : WeatherService){
-        weather.GetWeatherByCity{ (success, weatherData) in
+        weather.getWeatherByCity{ (success, weatherData) in
             if success, let weatherData = weatherData {
                 self.update2(weatherData: weatherData)
                 
@@ -89,7 +90,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     }
     
     func weatherShowDefault(weather : WeatherService){
-        weather.GetWeatherByLocation { (success, weatherData) in
+        weather.getWeatherByLocation { (success, weatherData) in
             if success, let weatherData = weatherData {
                 self.update(weatherData: weatherData)
                 

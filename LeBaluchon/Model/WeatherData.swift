@@ -23,7 +23,7 @@ struct WeatherData {
     
     
     
-    func ConvertKelvinInCelcuis(kelvin : Double) -> String{
+    func convertKelvinInCelcuis(kelvin : Double) -> String{
         let celsius = kelvin - 273.15
         let celsiusRound = String(format:"%.1f", celsius)
         return celsiusRound
@@ -31,9 +31,9 @@ struct WeatherData {
     
     mutating func Convertion () {
         
-      temperature = ConvertKelvinInCelcuis(kelvin: temp)
-      temperatureMin = ConvertKelvinInCelcuis(kelvin: tempMin)
-      temperatureMax = ConvertKelvinInCelcuis(kelvin: tempMax)
+      temperature = convertKelvinInCelcuis(kelvin: temp)
+      temperatureMin = convertKelvinInCelcuis(kelvin: tempMin)
+      temperatureMax = convertKelvinInCelcuis(kelvin: tempMax)
     }
      
  

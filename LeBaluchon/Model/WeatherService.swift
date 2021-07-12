@@ -9,10 +9,10 @@ import Foundation
 
 class WeatherService {
     
-    var lat : Double?
-    var lon : Double?
-    var name : String?
-    var icon : String?
+    private var lat : Double?
+    private var lon : Double?
+    private var name : String?
+    private var icon : String?
  
     
     let baseString = "http://api.openweathermap.org/data/2.5/weather?"
@@ -21,7 +21,7 @@ class WeatherService {
     init(name : String){
         self.name = name
     }
-    
+     
     init(lat: Double, lon: Double){
         self.lat = lat
         self.lon = lon
@@ -38,12 +38,29 @@ class WeatherService {
         let URLString = baseString + cityName + accessKey
        return URLString
     }
+    
+    private var task: URLSessionTask?
+    private var weatherSession = URLSession(configuration: .default)
+    private var iconSession = URLSession(configuration: .default)
+    
+    init(weatherSession: URLSession, iconSession : URLSession, name : String){
+        self.weatherSession = weatherSession
+        self.iconSession = iconSession
+        self.name = name
+    }
+    
+    init(weatherSession: URLSession, iconSession : URLSession, lat : Double, lon: Double){
+        self.weatherSession = weatherSession
+        self.iconSession = iconSession
+        self.lat = lat
+        self.lon = lon
+    }
    
-    func GetWeatherByCity(callback: @escaping (Bool, WeatherData?) -> Void) {
+    func getWeatherByCity(callback: @escaping (Bool, WeatherData?) -> Void) {
     
         let URLString = city()
         if let url = URL(string: URLString) {
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
+           task = weatherSession.dataTask(with: url) { (data, response, error) in
                 DispatchQueue.main.async {
                     if let data = data {
                         do {
@@ -82,16 +99,17 @@ class WeatherService {
                     }
                 }
       
-            }.resume()
+           }
+            task?.resume()
 
         }
     }
     
-    func GetWeatherByLocation(callback: @escaping (Bool, WeatherData?) -> Void) {
+    func getWeatherByLocation(callback: @escaping (Bool, WeatherData?) -> Void) {
     
         let URLString = findLocation()
         if let url = URL(string: URLString) {
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
+            task = weatherSession.dataTask(with: url) { (data, response, error) in
                 DispatchQueue.main.async {
                     if let data = data {
                         do {
@@ -130,7 +148,8 @@ class WeatherService {
                     }
                 }
       
-            }.resume()
+            }
+            task?.resume()
  
         }
     }
@@ -144,13 +163,13 @@ class WeatherService {
         let URLString = baseString + iconUrl! + taille
         
         if let url = URL(string: URLString) {
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
+            task = iconSession.dataTask(with: url) { (data, response, error) in
                 DispatchQueue.main.async {
                     if let data = data, error == nil {
                         do {
                             if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                             
-                                completionHandler(data)
+                            
+                                    completionHandler(data)
                                 
                             }
                        
@@ -162,8 +181,10 @@ class WeatherService {
                     }
                 }
             }
-            }.resume()
+            }
+            task?.resume()
     }
 }
+    
 
 }

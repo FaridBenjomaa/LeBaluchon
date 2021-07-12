@@ -55,11 +55,11 @@ class DeviseViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ 
     }
     
     func Convert(deviseService : DeviseService){
-        devise.getAPI { (success, deviseData) in
+        devise.getDevise { (success, deviseData) in
             if success, let deviseData = deviseData {
                 self.update(deviseData: deviseData)
                

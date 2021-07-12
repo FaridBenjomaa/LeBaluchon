@@ -1,0 +1,10 @@
+{
+    "data": {
+        "translations": [
+            {
+                "translatedText": "hello and welcome home",
+                "model": "nmt"
+            }
+        ]
+    }
+}

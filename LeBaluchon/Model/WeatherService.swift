@@ -34,8 +34,9 @@ class WeatherService {
     }
   
     func city() -> String{
-        let cityName = "q=\(name!)"
-        let URLString = baseString + cityName + accessKey
+        let nameWithSpace = "q=\(name!)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let cityName = nameWithSpace
+        let URLString = baseString + cityName! + accessKey
        return URLString
     }
     
@@ -78,7 +79,7 @@ class WeatherService {
                                         if let data = data {
                                             var weatherData = WeatherData(name: name, temp: temp, tempMin: tempMin, tempMax: tempMax, country: country, weather: weather, icon: data)
                                             
-                                            weatherData.image = result.weather[0].description
+                                            weatherData.image = result.weather[0].icon
                                             
                                             weatherData.Convertion()
                                             callback(true, weatherData)
@@ -127,7 +128,7 @@ class WeatherService {
                                         if let data = data {
                                             var weatherData = WeatherData(name: name, temp: temp, tempMin: tempMin, tempMax: tempMax, country: country, weather: weather, icon: data)
                                             
-                                          weatherData.image = result.weather[0].description
+                                          weatherData.image = result.weather[0].icon
                                             
                                             weatherData.Convertion()
                                             callback(true, weatherData)

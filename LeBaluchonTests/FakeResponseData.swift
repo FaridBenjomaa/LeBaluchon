@@ -21,7 +21,6 @@ class FakeResponseData {
         
     }
     
-    
     let deviseError = DeviseError()
     let weatherError = WeatherError()
     let translationeError = TranslationError()

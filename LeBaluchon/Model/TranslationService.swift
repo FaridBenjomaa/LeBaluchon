@@ -20,8 +20,10 @@ class TranslationService {
     private var task : URLSessionTask?
     private var translateSession = URLSession(configuration: .default)
     
-    init (translateSession : URLSession) {
+    init (translateSession : URLSession, quoteText: String, language: String) {
         self.translateSession = translateSession
+        self.quoteText = quoteText
+        self.language = language
     }
     
     func getUrl(quoteText: String, language: String) -> String {
@@ -51,11 +53,13 @@ class TranslationService {
                     do {
                         let result = try JSONDecoder().decode(TransaltionAPI.self, from: data)
             
+                        let sourceLanguage = result.data.translations[0].detectedSourceLanguage
                         let translatedText = result.data.translations[0].translatedText
                         
                         print(self.quoteText!)
                         print(translatedText)
-                        let translationData = TranslationData(translatedText: translatedText)
+                        print(sourceLanguage)
+                        let translationData = TranslationData(translatedText: translatedText, sourceLanguage: sourceLanguage)
                      
                         callback(true, translationData)
                         

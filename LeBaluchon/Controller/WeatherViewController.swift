@@ -64,7 +64,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         
         weatherShow(weather: weather1)
         weatherShow2(weather: weather2)
-        valider.isHidden = true
+        
     }
     
     func weatherShow(weather : WeatherService){
@@ -122,7 +122,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
     
     func update2(weatherData : WeatherData){
         
-        nameCity2.isHidden = true
+       
         temperature2.isHidden = false
         tempMax2.isHidden = false
         tempMin2.isHidden = false

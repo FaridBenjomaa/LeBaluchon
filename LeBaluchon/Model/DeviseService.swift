@@ -19,8 +19,10 @@ class DeviseService {
     private var task : URLSessionTask?
     private var deviseSession = URLSession(configuration: .default)
     
-    init(deviseSession : URLSession){
+    init(deviseSession : URLSession, deviseName: String, devise : Double){
         self.deviseSession = deviseSession
+        self.deviseName = deviseName
+        self.devise = devise
     }
     
     

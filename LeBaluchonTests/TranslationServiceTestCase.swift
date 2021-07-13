@@ -4,29 +4,78 @@
 //
 //  Created by Farid Benjomaa on 12/07/2021.
 //
-
+@testable import LeBaluchon
 import XCTest
 
 class TranslationServiceTestCase: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testGetTranslationPostFailledCallbackifError(){
+       
+        let translationService = TranslationService(translateSession:URLSessionFake(data: nil, response: nil, error: FakeResponseData.init().translationeError), quoteText : "Bonjour", language : "en")
+        
+        translationService.translateApi{ (success, translationData) in
+            
+            XCTAssertFalse(success)
+            XCTAssertNil(translationData)
+           
         }
+        
+    }
+    
+    func testGetTranslationPostFailledCallbackifNoData(){
+       
+        let translationService = TranslationService(translateSession:URLSessionFake(data: nil, response: nil, error: nil), quoteText : "Bonjour", language : "en")
+        
+        translationService.translateApi{ (success, translationData) in
+            
+            XCTAssertFalse(success)
+            XCTAssertNil(translationData)
+           
+        }
+        
+    }
+    
+    func testGetTranslationPostFailledCallbackIfIncorrectResponse(){
+       
+        let translationService = TranslationService(translateSession:URLSessionFake(data: FakeResponseData.init().DeviseCorrectData, response: FakeResponseData.init().responseKO, error: nil), quoteText : "Bonjour", language : "en")
+        
+        translationService.translateApi{ (success, translationData) in
+            
+            XCTAssertFalse(success)
+            XCTAssertNil(translationData)
+           
+        }
+        
     }
 
+    
+    func testGetTranslationPostFailledCallbackIfIncorrectData(){
+       
+        let translationService = TranslationService(translateSession:URLSessionFake(data: FakeResponseData.init().deviseIncorrectData, response: FakeResponseData.init().responseOK, error: nil), quoteText : "Bonjour", language : "en")
+        
+        translationService.translateApi{ (success, translationData) in
+            
+            XCTAssertFalse(success)
+            XCTAssertNil(translationData)
+           
+        }
+        
+    }
+    
+    func testGetTranslationPostSuccessCallbackifNoDataErrorAndCorrectData(){
+       
+        let translationService = TranslationService(translateSession:URLSessionFake(data: FakeResponseData.init().DeviseCorrectData, response: FakeResponseData.init().responseOK, error: nil), quoteText : "Bonjour", language : "en")
+        
+        translationService.translateApi{ (success, translationData) in
+            
+            let translatedText = "hello and welcome home"
+     
+            
+            XCTAssertFalse(success)
+            XCTAssertNil(translationData)
+            XCTAssertEqual(translatedText, translationData?.translatedText)
+           
+        }
+        
+    }
 }

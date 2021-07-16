@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController{
 
 
-    @IBOutlet weak var weatherButton: UIButton!
+
 
     
     override func viewDidLoad() {

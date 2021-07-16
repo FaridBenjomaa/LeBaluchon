@@ -14,6 +14,11 @@ class DeviseViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var deviseSelect = "AED"
     var deviseValue = 4.384179
     
+    @IBOutlet weak var base: UITextField!
+    @IBOutlet weak var deviseBase: UILabel!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var result: UILabel!
+    
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -37,17 +42,20 @@ class DeviseViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         }
 
-    @IBOutlet weak var base: UITextField!
-    @IBOutlet weak var deviseBase: UILabel!
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var result: UILabel!
+    
     
     
     
     @IBAction func ConvertButton(_ sender: Any) {
-        deviseValue =  Double(base.text!)!
-        devise = DeviseService(deviseName: deviseSelect, devise: deviseValue)
         
+        if Double(base.text!) != nil{
+            deviseValue =  Double(base.text!)!
+        }else{
+            presentAlert()
+        }
+       
+        
+        devise = DeviseService(deviseName: deviseSelect, devise: deviseValue)
         Convert(deviseService: devise)
      
     }
@@ -64,7 +72,7 @@ class DeviseViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 self.update(deviseData: deviseData)
                
             }else {
-                
+                self.presentAlert()
             }
         }
     }
@@ -72,6 +80,12 @@ class DeviseViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     func update(deviseData : DeviseData){
         result.text = String(deviseData.resultat!)
 
+    }
+    
+    func presentAlert(){
+        let alertVC = UIAlertController(title: "Error", message: "Merci d'utilisé des chifres", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
   
 

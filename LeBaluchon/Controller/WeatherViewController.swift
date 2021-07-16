@@ -73,7 +73,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
                 self.update(weatherData: weatherData)
                 
             }else {
-                
+               
             }
         }
     }
@@ -84,7 +84,7 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
                 self.update2(weatherData: weatherData)
                 
             }else {
-                
+                self.presentAlert()
             }
         }
     }
@@ -138,6 +138,12 @@ class WeatherViewController: UIViewController,  CLLocationManagerDelegate{
         self.icon2.image = UIImage(data : weatherData.icon)
         
       
+    }
+    
+    func presentAlert(){
+        let alertVC = UIAlertController(title: "Error", message: "La ville n'a pas été trouvé", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertVC, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
